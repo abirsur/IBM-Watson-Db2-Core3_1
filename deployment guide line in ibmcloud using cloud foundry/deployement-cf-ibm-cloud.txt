@@ -1,0 +1,22 @@
+Deployment:
+-------------------------------------------------------------
+Ibmcloud login -u a8irsur@gmail.com
+ibmcloud resource groups
+ibmcloud target -g 2a7f5d4720864a7bac9cca715d1a191c
+ibmcloud target --cf
+cd C:\Users\Abir?Sur\source\repos\TESTAPPDB2 \PUBLISH
+ibmcloud cf push TESTAPPDB2 
+---------------------------------------------------------
+Troubleshooting:
+ibmcloud cf restart TESTAPPDB2 
+ibmcloud cf restage TESTAPPDB2 
+ibmcloud cf logs TESTAPPDB2 --recent
+-----------------------------------------------------
+For IBM Db2 connection:
+Set Environment Variable: (LD_LIBRARY_PATH)
+LD_LIBRARY_PATH = /home/vcap/app/clidriver/lib/
+-------------------------------------------------------------
+To find the actual path of "libdb2.so"
+open ssh and use this command
+find $PWD -type f | grep "libdb2.so"
+----------------------------------------------------------
