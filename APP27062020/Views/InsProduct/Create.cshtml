@@ -1,0 +1,44 @@
+﻿@model APP27062020.DAL.DTO.ProductInsurance
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<h4>ProductInsurance</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label  class="control-label">Product Id</label>
+                <input asp-for="ID" class="form-control" />
+                <span asp-validation-for="ID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label"> Product Name</label>
+                <input asp-for="NAME" class="form-control" />
+                <span asp-validation-for="NAME" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Short Description</label>
+                <input asp-for="SHORTDESCRIPTION" class="form-control" />
+                <span asp-validation-for="SHORTDESCRIPTION" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label"> Product Url</label>
+                <input asp-for="PRODUCTURL" class="form-control" />
+                <span asp-validation-for="PRODUCTURL" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-outline-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
