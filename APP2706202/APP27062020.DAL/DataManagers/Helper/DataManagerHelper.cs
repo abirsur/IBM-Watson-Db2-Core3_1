@@ -12,5 +12,12 @@ namespace APP27062020.DAL.DataManagers.Helper
             DropFailed = 2,
             NotExists = 3
         }
+
+        public enum MembershipPlan
+        {
+            Silver = 1,
+            Gold = 2,
+            Platinum = 3
+        }
     }
 }

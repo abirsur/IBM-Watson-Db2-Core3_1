@@ -1,6 +1,8 @@
 ﻿using APP27062020.DAL.DataManagers;
 using APP27062020.DAL.DTO;
+using APP27062020.Models;
 using Microsoft.AspNetCore.Mvc;
+using System;
 
 namespace APP24062020.Controllers
 {
@@ -9,7 +11,7 @@ namespace APP24062020.Controllers
         // GET: Product
         public ActionResult Index()
         {
-            return View("~/Views/InsProduct/Index.cshtml", new ProductManager().GetInsuranceProductData());
+            return View("~/Views/Products/Index.cshtml", new ProductManager().GetInsuranceProductData());
         }
 
         // GET: Product/Details/5
@@ -21,19 +23,19 @@ namespace APP24062020.Controllers
         // GET: Product/Create
         public ActionResult Create()
         {
-            return View("~/Views/InsProduct/Create.cshtml");
+            return View("~/Views/Products/Create.cshtml");
         }
 
         // POST: Product/Create
         [HttpPost]
-        public ActionResult Create(ProductInsurance productInsurance)
+        public ActionResult Create(ProductViewModel productInsurance)
         {
             try
             {
                 new ProductManager().CreateInsuranceProduct(productInsurance);
                 return RedirectToAction(nameof(Index));
             }
-            catch
+            catch(Exception ex)
             {
                 return View();
             }
