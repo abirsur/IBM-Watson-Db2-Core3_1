@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Reflection;
+using static APP27062020.DAL.DataManagers.Helper.DataManagerHelper;
 
 namespace APP27062020.DAL.DataManagers.Core
 {
@@ -18,6 +19,60 @@ namespace APP27062020.DAL.DataManagers.Core
             _db2Connection = new DB2Connection(_connectionString);
         }
 
+        #endregion
+
+        #region Create Drop Exists Table
+
+        private bool GenericExcuteNonQuery(string query) {
+            bool result = false;
+            try
+            {
+                _db2Connection.Open();
+                DB2Command DBCmd = new DB2Command(query, _db2Connection);
+                DBCmd.ExecuteNonQuery();
+                _db2Connection.Close();
+                result = true;
+            }
+            catch (Exception ex)
+            {
+                result = false;
+                throw ex; ;
+            }
+            finally
+            {
+                _db2Connection.Close();
+
+            }
+            return result;
+        }
+
+        public bool IsTableExistsinDb(string schema, string tableName)
+        {
+            DataTable dt = GetDb2Data($@"select tabname from syscat.tables where tabschema='{schema}' and tabname='{tableName}'");
+            if (dt.Rows.Count > 0)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public DbDropStatus DropTable(string schema, string deleteTableName) {
+            if (IsTableExistsinDb(schema, deleteTableName))
+            {
+                return GenericExcuteNonQuery($@"drop table {schema}.{deleteTableName}")? DbDropStatus.DropSuccess : DbDropStatus.DropFailed;
+            }
+            return DbDropStatus.NotExists;
+        }
+
+        public bool CreateNewTable(string createTableQuery, string tableName, string schema)
+        {
+            var drpStatus = DropTable(tableName, schema);
+            if (drpStatus == DbDropStatus.DropSuccess || drpStatus == DbDropStatus.NotExists) {
+                return GenericExcuteNonQuery(createTableQuery);
+            }
+            return false;
+        }
+        
         #endregion
 
         #region Get Data in List of Model
