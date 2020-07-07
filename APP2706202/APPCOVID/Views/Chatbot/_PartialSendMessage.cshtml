@@ -1,0 +1,15 @@
+﻿@model APPCOVID.Entity.ViewModels.UserQueryModel
+
+
+<form asp-action="SendMessage">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group">
+        <label>Ask to BOT:</label>
+        <input asp-for="UserQuery" class="form-control" />
+        <span asp-validation-for="UserQuery" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Send" class="btn btn-default" />
+    </div>
+</form>
+

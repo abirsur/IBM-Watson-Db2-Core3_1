@@ -1,0 +1,60 @@
+﻿@model APPCOVID.Entity.DTO.ProductDto
+
+
+<h4>ProductDto</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" asp-controller="Product">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="PRODID" class="control-label"></label>
+                <input asp-for="PRODID" class="form-control" />
+                <span asp-validation-for="PRODID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NAME" class="control-label"></label>
+                <input asp-for="NAME" class="form-control" />
+                <span asp-validation-for="NAME" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PRODUCTTYPE" class="control-label"></label>
+                <input asp-for="PRODUCTTYPE" class="form-control" />
+                <span asp-validation-for="PRODUCTTYPE" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FORSTAGE" class="control-label"></label>
+                <input asp-for="FORSTAGE" class="form-control" />
+                <span asp-validation-for="FORSTAGE" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SHORTDESCRIPTION" class="control-label"></label>
+                <input asp-for="SHORTDESCRIPTION" class="form-control" />
+                <span asp-validation-for="SHORTDESCRIPTION" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PRODUCTURL" class="control-label"></label>
+                <input asp-for="PRODUCTURL" class="form-control" />
+                <span asp-validation-for="PRODUCTURL" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MEMBERSHIPPLAN" class="control-label"></label>
+                <input asp-for="MEMBERSHIPPLAN" class="form-control" />
+                <span asp-validation-for="MEMBERSHIPPLAN" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="USERID" class="control-label"></label>
+                <input asp-for="USERID" class="form-control" />
+                <span asp-validation-for="USERID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

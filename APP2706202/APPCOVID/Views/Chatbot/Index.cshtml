@@ -1,0 +1,31 @@
+﻿@model APPCOVID.Entity.ViewModels.ChatViewModel
+
+@{
+    ViewData["Title"] = "View";
+    IEnumerable<APPCOVID.Entity.ViewModels.ConversatioMessage> chatHistory = Model == null ? new List<APPCOVID.Entity.ViewModels.ConversatioMessage>() : Model.ChatHistory;
+}
+
+<h2>View</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Chat with Sample Customer Service BOT
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in chatHistory)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SendBy): <br />
+                    <b>@Html.DisplayFor(modelItem => item.Message)</b>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@Html.Partial("_PartialSendMessage", Model.UsrQueryModel)

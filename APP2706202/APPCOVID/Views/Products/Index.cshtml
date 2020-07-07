@@ -1,0 +1,70 @@
+﻿@model IEnumerable<APPCOVID.Entity.ViewModels.ProductViewModel>
+
+@Html.ActionLink("Create New Product", "Create", "Product")
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PRODID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NAME)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PRODUCTTYPE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FORSTAGE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SHORTDESCRIPTION)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PRODUCTURL)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MEMBERSHIPPLAN)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.USERID)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PRODID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NAME)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PRODUCTTYPE)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FORSTAGE)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SHORTDESCRIPTION)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PRODUCTURL)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MEMBERSHIPPLAN)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.USERID)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
